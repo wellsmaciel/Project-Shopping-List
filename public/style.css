@@ -82,3 +82,9 @@ label {
   color: var(--primary-paragraph-color);
   font-family: 'Inter', sans-serif;
 }
+
+/*Trash bin Icon*/
+.delete-icon {
+  width: 15px;
+  height: 15px;
+}

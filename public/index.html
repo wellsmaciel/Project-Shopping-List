@@ -1,13 +1,40 @@
-<html>
-
-<head>
-  <title>Express</title>
-  <link rel="stylesheet" href="/stylesheets/style.css">
-</head>
-
-<body>
-  <h1>Express</h1>
-  <p>Welcome to Express</p>
-</body>
-
+<!doctype html>
+<html lang="en" color-mode="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Alata:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <title>Shopping List</title>
+  </head>
+  <body>
+    <header>
+      <div class="theme-section">
+        <label class="theme-button">Theme</label><br />
+        <button class="toggle-switch" id="theme-button">
+          <span class="toggle-ball"></span>
+        </button>
+      </div>
+    </header>
+    <main>
+      <h1>Shopping List App</h1>
+      <form id="list-form">
+        <label for="item">Item:</label>
+        <input type="text" id="item" name="item" required />
+        <label for="quantity" min="1">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" required step="1" />
+        <button id="submit-btn" type="submit">Add to My List</button>
+      </form>
+      <section>
+        <h2>My List</h2>
+        <div id="addedItems">
+          <ul id="result"></ul>
+        </div>
+      </section>
+    </main>
+    <script src="main.js"></script>
+  </body>
 </html>

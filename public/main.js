@@ -8,15 +8,26 @@ document.getElementById('list-form').addEventListener('submit', function (event)
   } else {
     const listItem = document.createElement('li');
     const checkbox = document.createElement('input');
-    const text = document.createTextNode(`${shop_item} - Quantity: ${qtd}`);
+    const text = document.createTextNode(`${shop_item} - Quantity: ${qtd} - `);
     const list = document.getElementById('result');
+    const deleteButton = document.createElement('button');
+    const deleteIcon = document.createElement('img');
+
     checkbox.type = 'checkbox';
     listItem.appendChild(checkbox);
     listItem.appendChild(text);
     list.appendChild(listItem);
+    deleteIcon.src = 'images/trash light.png';
+    deleteButton.appendChild(deleteIcon);
+    deleteIcon.alt = 'Delete';
+    deleteIcon.classList.add('delete-icon');
+    listItem.appendChild(deleteButton);
 
     document.getElementById('item').value = '';
     document.getElementById('quantity').value = '';
+    deleteButton.addEventListener('click', function () {
+      list.removeChild(listItem);
+    });
   }
 });
 
