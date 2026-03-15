@@ -8,23 +8,26 @@ document.getElementById('list-form').addEventListener('submit', function (event)
   } else {
     const listItem = document.createElement('li');
     const checkbox = document.createElement('input');
-    const text = document.createTextNode(`${shop_item} - Quantity: ${qtd} - `);
+    const text = document.createTextNode(`${shop_item} - Quantity: ${qtd}`);
     const list = document.getElementById('result');
     const deleteButton = document.createElement('button');
     const deleteIcon = document.createElement('img');
 
+    // Element setup
     checkbox.type = 'checkbox';
+    deleteIcon.src = '/images/trash light.png';
+    deleteIcon.alt = 'Excluir item';
+    deleteIcon.className = 'delete-icon';
+    deleteButton.className = 'delete-button';
+
+    // Append elements
+    deleteButton.appendChild(deleteIcon);
     listItem.appendChild(checkbox);
     listItem.appendChild(text);
-    list.appendChild(listItem);
-    deleteIcon.src = 'images/trash light.png';
-    deleteButton.appendChild(deleteIcon);
-    deleteIcon.alt = 'Delete';
-    deleteIcon.classList.add('delete-icon');
     listItem.appendChild(deleteButton);
+    list.appendChild(listItem);
 
-    document.getElementById('item').value = '';
-    document.getElementById('quantity').value = '';
+    // Delete item event listener
     deleteButton.addEventListener('click', function () {
       list.removeChild(listItem);
     });
