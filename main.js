@@ -1,4 +1,5 @@
-document.getElementById('submit-btn').addEventListener('click', function (event) {
+// Add event listener to the submit button
+document.getElementById('list-form').addEventListener('submit', function (event) {
   event.preventDefault();
   const shop_item = document.getElementById('item').value;
   const qtd = document.getElementById('quantity').value;
@@ -18,3 +19,19 @@ document.getElementById('submit-btn').addEventListener('click', function (event)
     document.getElementById('quantity').value = '';
   }
 });
+
+// Theme Toggle
+{
+  const themeButton = document.getElementById('theme-button');
+  const htmlFile = document.documentElement;
+
+  themeButton.addEventListener('click', function () {
+    let currentTheme = htmlFile.getAttribute('color-mode');
+
+    if (currentTheme === 'light') {
+      htmlFile.setAttribute('color-mode', 'dark');
+    } else {
+      htmlFile.setAttribute('color-mode', 'light');
+    }
+  });
+}
