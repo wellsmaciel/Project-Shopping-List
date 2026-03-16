@@ -15,8 +15,8 @@ document.getElementById('list-form').addEventListener('submit', function (event)
 
     // Element setup
     checkbox.type = 'checkbox';
-    deleteIcon.src = '/images/trash light.png';
-    deleteIcon.alt = 'Excluir item';
+    deleteIcon.src = '/public/images/trash light.png';
+    deleteIcon.alt = 'Remove item';
     deleteIcon.className = 'delete-icon';
     deleteButton.className = 'delete-button';
 
@@ -46,6 +46,22 @@ document.getElementById('list-form').addEventListener('submit', function (event)
       htmlFile.setAttribute('color-mode', 'dark');
     } else {
       htmlFile.setAttribute('color-mode', 'light');
+    }
+  });
+}
+
+// Clear List Button
+{
+  const addedList = document.getElementById('result');
+  const addedItems = document.getElementById('addedItems');
+  const deleteListbtn = document.createElement('button');
+  deleteListbtn.className = 'delete-list-button';
+  deleteListbtn.textContent = 'Clear List';
+  addedItems.appendChild(deleteListbtn);
+
+  deleteListbtn.addEventListener('click', function () {
+    while (addedList.firstChild) {
+      addedList.removeChild(addedList.firstChild);
     }
   });
 }
