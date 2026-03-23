@@ -62,12 +62,14 @@ h1 {
   color: var(--primary-headline-color);
   font-family: 'Alata', sans-serif;
   font-weight: 700;
+  font-size: 4em;
 }
 
 h2 {
-  color: var(--primary-button-bg-color);
+  color: var(--primary-paragraph-color);
   font-family: 'Inter', sans-serif;
   font-weight: 600;
+  font-size: 3em;
 }
 
 #result {
@@ -76,15 +78,31 @@ h2 {
   list-style: none;
   color: var(--primary-paragraph-color);
   font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 1.5em;
 }
 
 label {
   color: var(--primary-paragraph-color);
   font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 1em;
 }
 
 /*Trash bin Icon*/
 .delete-icon {
   width: 15px;
   height: 15px;
+}
+
+/*Button Styles*/
+button {
+  background-color: var(--primary-button-bg-color);
+  color: var(--primary-button-text-color);
+  border: none;
+  padding: 5px 10px;
+  font-family: 'Alata', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 5px;
 }

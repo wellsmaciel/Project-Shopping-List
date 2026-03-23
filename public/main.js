@@ -65,3 +65,34 @@ document.getElementById('list-form').addEventListener('submit', function (event)
     }
   });
 }
+
+function RenderGroceryList() {
+  fetch('http://localhost:3000/api/v2/shopping_list')
+    .then((response) => response.json())
+    .then((data) => {
+      const list = document.getElementById('result');
+
+      list.innerHTML = '';
+
+      data.forEach((item) => {
+        const listItem = document.createElement('li');
+        const checkbox = document.createElement('input');
+        const text = document.createTextNode(`${item.item_name} - ${item.unit_type} - Quantity: ${item.quantity}`);
+        const deleteButton = document.createElement('button');
+        const deleteIcon = document.createElement('img');
+
+        checkbox.type = 'checkbox';
+        deleteIcon.src = '/images/trash light.png';
+        deleteIcon.alt = 'Remove item';
+        deleteIcon.className = 'delete-icon';
+        deleteButton.className = 'delete-button';
+
+        deleteButton.appendChild(deleteIcon);
+        listItem.appendChild(checkbox);
+        listItem.appendChild(text);
+        listItem.appendChild(deleteButton);
+        list.appendChild(listItem);
+      });
+    });
+}
+RenderGroceryList();
