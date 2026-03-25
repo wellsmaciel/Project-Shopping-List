@@ -22,20 +22,26 @@
     <main>
       <h1>Shopping List App</h1>
       <form id="list-form">
-        <label for="item">Item:</label>
-        <input type="text" id="item" name="item" required />
-        <label for="itemType">Choose a type:</label>
-        <select id="itemType" name="itemType" required>
-          <option value="Milliliters">Mls</option>
-          <option value="Liters">Liters</option>
-          <option value="Bottles">Bottles</option>
-          <option value="Pack">Pack</option>
-          <option value="Box">Box</option>
-          <option value="Bag">Bag</option>
-          <option value="units">Units</option>
-        </select>
-        <label for="quantity" min="1">Quantity:</label>
-        <input type="number" id="quantity" name="quantity" required step="1" />
+        <div class="form_item_name">
+          <label for="item">Item:</label>
+          <input type="text" id="item" name="item" required />
+        </div>
+        <div class="form_item_type">
+          <label for="itemType">Choose a type:</label>
+          <select id="itemType" name="itemType" required>
+            <option value="units">Units</option>
+            <option value="Liters">Liters</option>
+            <option value="Pack">Pack</option>
+            <option value="Bottles">Bottles</option>
+            <option value="Box">Box</option>
+            <option value="Bag">Bag</option>
+            <option value="Milliliters">Mls</option>
+          </select>
+        </div>
+        <div class="form_item_quantity">
+          <label for="quantity" min="1">Quantity:</label>
+          <input type="number" id="quantity" name="quantity" required step="1" />
+        </div>
         <button id="submit-btn" type="submit">Add to My List</button>
       </form>
       <section>
