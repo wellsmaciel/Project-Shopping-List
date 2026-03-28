@@ -2,10 +2,12 @@
 
 :root[color-mode='light'] {
   --primary-bg-color: #f1faee;
-  --primary-headline-color: #e63946;
+  --primary-headline-color: #a7303a;
   --primary-paragraph-color: #1d3557;
   --primary-button-bg-color: #a8dadc;
   --primary-button-text-color: #457b9d;
+  --primary-deletebtn-bg-color: #a7303a;
+  --primary-deletebtn-font-color: #f1faee;
 }
 
 :root[color-mode='dark'] {
@@ -14,6 +16,8 @@
   --primary-paragraph-color: #ffffff;
   --primary-button-bg-color: #bfc0c0;
   --primary-button-text-color: #4f5d75;
+  --primary-deletebtn-bg-color: #ef8354;
+  --primary-deletebtn-font-color: #2d3142;
 }
 
 /*theme toggle button styles*/
@@ -78,8 +82,6 @@ h2 {
   list-style: none;
   color: var(--primary-paragraph-color);
   font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-size: 1em;
 }
 
 label {
@@ -94,7 +96,6 @@ label {
 .form_item_type,
 .form_item_quantity {
   display: flex;
-  flex-direction: column;
   align-items: center;
   gap: 0.25em;
   align-items: flex-start;
@@ -106,25 +107,63 @@ label {
 }
 
 #result li {
-  align-self: left;
-  display: flex;
-}
-/*Trash bin Icon*/
-.delete-icon {
-  width: 0.5em;
-  height: 0.5em;
+  display: grid;
+  grid-template-columns: auto auto auto;
 }
 
 /*Button Styles*/
-button {
-  background-color: var(--primary-button-bg-color);
-  color: var(--primary-button-text-color);
+
+#result li {
+  grid-template-columns: 1fr 2fr 1fr;
+}
+
+.delete-button {
+  color: var(--primary-deletebtn-font-color);
+  background-color: var(--primary-deletebtn-bg-color);
   border: none;
-  padding: 5px 10px;
   font-family: 'Alata', sans-serif;
   font-weight: 600;
   cursor: pointer;
   border-radius: 5px;
+  margin: auto 0.25em;
+}
+.update-button,
+.submit,
+.delete-list-button {
+  color: var(--primary-button-text-color);
+  background-color: var(--primary-button-bg-color);
+  border: none;
+  font-family: 'Alata', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: auto 0.25em;
+}
+
+.item-text {
+  flex-direction: column;
+  display: flex;
+  font-weight: 600;
+  font-size: 1.25em;
+  text-align: center;
+}
+
+.item-details {
+  flex-direction: column;
+  display: flex;
+  text-align: center;
+}
+
+.checkbox-container {
+  display: grid;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.buttons-container {
+  display: grid;
+  gap: 0.5em;
+  margin-top: 0.5em;
 }
 
 /* Media Queries for Responsiveness */

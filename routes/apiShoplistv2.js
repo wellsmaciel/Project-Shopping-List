@@ -147,4 +147,17 @@ apiShoplistv2.put('/shopping_list/:id', function (req, res, next) {
     });
 });
 
+//Clear all items from the shopping list
+apiShoplistv2.delete('/shopping_list', function (req, res, next) {
+  knex('shopping_list')
+    .del()
+    .then(() => {
+      res.status(200).json({ message: 'All items were deleted successfully' });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).json({ error: 'Failed to delete all items' });
+    });
+});
+
 module.exports = apiShoplistv2;
