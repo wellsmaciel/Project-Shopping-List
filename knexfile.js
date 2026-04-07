@@ -1,4 +1,11 @@
-// Update with your config settings.
+const sharedMigrations = {
+  tableName: 'knex_migrations',
+  directory: './db/migrations',
+};
+
+const sharedSeeds = {
+  directory: './db/seeds',
+};
 
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
@@ -9,45 +16,24 @@ module.exports = {
     connection: {
       filename: './db/dev.sqlite3',
     },
-    migrations: {
-      tableName: 'knex_migrations',
-      directory: './db/migrations',
-    },
+    migrations: sharedMigrations,
+    seeds: sharedSeeds,
     useNullAsDefault: true,
-    seeds: {
-      directory: './db/seeds',
-    },
-  },
-
-  staging: {
-    client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user: 'username',
-      password: 'password',
-    },
-    pool: {
-      min: 2,
-      max: 10,
-    },
-    migrations: {
-      tableName: 'knex_migrations',
-    },
   },
 
   production: {
-    client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user: 'username',
-      password: 'password',
-    },
+    client: 'pg',
+    connection: process.env.DATABASE_URL
+      ? {
+          connectionString: process.env.DATABASE_URL,
+          ssl: { rejectUnauthorized: false },
+        }
+      : undefined,
+    migrations: sharedMigrations,
+    seeds: sharedSeeds,
     pool: {
       min: 2,
       max: 10,
-    },
-    migrations: {
-      tableName: 'knex_migrations',
     },
   },
 };

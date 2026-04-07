@@ -19,7 +19,7 @@ var apiShoplistv2 = express.Router();
   },
 ];*/
 
-const knex = require('knex')(require('../knexfile').development);
+const knex = require('../db/knex');
 
 apiShoplistv2.get('/shopping_list', function (req, res, next) {
   knex('shopping_list')
